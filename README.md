@@ -3,11 +3,11 @@ PAYDUNYA .NET Client API
 PAYDUNYA .NET Client Library
 
 ## Offical Documentation
-http://paydunya.com/developers/dotnet
+https://paydunya.com/developers/dotnet
 
 ## Installation
 
-Add Assembly file Dependencies from the `bin/Release` directory
+Add Assembly file Dependencies
 
     Paydunya.dll
     Newtonsoft.Json.dll
