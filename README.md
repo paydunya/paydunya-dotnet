@@ -117,7 +117,7 @@ You can pay any PAYDUNYA account directly via your third party apps. This is par
 
 
 ## Download PAYDUNYA .NET Demo
-https://github.com/paydunya/paydunua-dotnet-demo
+https://github.com/paydunya/paydunya-dotnet-demo
 
 ## Contribuer
 
