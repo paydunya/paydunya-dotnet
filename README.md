@@ -7,7 +7,7 @@ https://paydunya.com/developers/dotnet
 
 ## Installation
 
-Add Assembly file Dependencies
+Add Assembly file Dependencies from the `bin/Release` directory
 
     Paydunya.dll
     Newtonsoft.Json.dll
