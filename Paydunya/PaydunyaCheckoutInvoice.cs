@@ -34,9 +34,16 @@ namespace Paydunya
             storeData.Add("phone_number", this.store.PhoneNumber);
             storeData.Add("logo_url", this.store.LogoUrl);
 
-            actions.Add("cancel_url", this.store.CancelUrl);
-            actions.Add("return_url", this.store.ReturnUrl);
+            if(!string.IsNullOrEmpty(this.store.CancelUrl))
+            {
+               actions.Add("cancel_url", this.store.CancelUrl);
+            }
 
+            if (!string.IsNullOrEmpty(this.store.ReturnUrl))
+            {
+               actions.Add("return_url", this.store.ReturnUrl);
+            }
+      
         }
 
         public void AddItem(string name, int quantity, double price, double total_price, string description = "")
@@ -103,6 +110,11 @@ namespace Paydunya
             return (string)actions["return_url"];
         }
 
+        public double GetTotalAmount()
+        {
+            return (double)invoice["total_amount"];
+        }
+
         public void SetCustomData(string key, object value)
         {
             customData.Add(key, JToken.FromObject(value));
@@ -152,7 +164,7 @@ namespace Paydunya
             JObject jsonData = utility.HttpGetRequest(setup.GetConfirmUrl() + token);
             bool result = false;
 
-            if (jsonData.Count > 0)
+            if (jsonData.Count > 0 && jsonData["status"] != null)
             {
                 Status = jsonData["status"].ToString();
                 invoice = utility.ParseJSON(jsonData["invoice"]);

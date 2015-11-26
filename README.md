@@ -26,7 +26,7 @@ Add Assembly file Dependencies from the `bin/Release` directory
 
     PaydunyaStore store = new PaydunyaStore {
       Name = "Magasin Chez Sandra",
-      Tagline = "L'élégance n'a pas de prix",
+      Tagline = "L'elegance n'a pas de prix",
       PhoneNumber = "336530583",
       PostalAddress = "Dakar Plateau - Etablissement kheweul"
     };
@@ -68,7 +68,7 @@ Params for addItem function `AddItem(name_of_item,quantity,unit_price,total_pric
 
 ## You can add custom data to your invoice which can be called back later
 
-    co.SetCustomData("Prénom", "Badara");
+    co.SetCustomData("Prenom", "Badara");
     co.SetCustomData("Nom", "Alioune");
     co.SetCustomData("CartId", 97628);
     co.SetCustomData("Coupon","NOEL");
