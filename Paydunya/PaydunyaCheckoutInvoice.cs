@@ -19,7 +19,8 @@ namespace Paydunya
         protected string invoiceUrl { get; set; }
         protected string cancelUrl { get; set; }
         protected string returnUrl { get; set; }
-        protected string receiptUrl { get; set; }
+		protected string callbackUrl { get; set; }
+		protected string receiptUrl { get; set; }
 
         public PaydunyaCheckoutInvoice(PaydunyaSetup setup, PaydunyaStore store)
         {
@@ -43,6 +44,11 @@ namespace Paydunya
             {
                actions.Add("return_url", this.store.ReturnUrl);
             }
+
+			if (!string.IsNullOrEmpty(this.store.ReturnUrl))
+			{
+				actions.Add("callback_url", this.store.CallbackUrl);
+			}
       
         }
 
@@ -85,6 +91,11 @@ namespace Paydunya
             actions.Add("return_url", url);
         }
 
+		public void SetCallbackUrl(string url)
+		{
+			actions.Add("callback_url", url);
+		}
+
         public void SetInvoiceUrl(string url)
         {
             invoiceUrl = url;
@@ -109,6 +120,11 @@ namespace Paydunya
         {
             return (string)actions["return_url"];
         }
+
+		public string GetCallbackUrl()
+		{
+			return (string)actions["callback_url"];
+		}
 
         public double GetTotalAmount()
         {

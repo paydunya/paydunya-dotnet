@@ -11,6 +11,7 @@ namespace Paydunya
         public string WebsiteUrl { get; set; }
         public string CancelUrl { get; set; }
         public string ReturnUrl { get; set; }
+		public string CallbackUrl { get; set; }
         public string LogoUrl { get; set; }
 
 
