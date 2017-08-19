@@ -12,6 +12,7 @@ namespace Paydunya
         protected JObject storeData = new JObject();
         protected JObject items = new JObject();
         protected JObject taxes = new JObject();
+        protected JArray channels = new JArray();
         protected JObject customData = new JObject();
         protected JObject customer = new JObject();
         protected JObject actions = new JObject();
@@ -69,6 +70,21 @@ namespace Paydunya
             tax.Add("name", name);
             tax.Add("amount", amount);
             taxes.Add("taxes_" + (string)taxes.Count.ToString(), tax);
+        }
+
+		public void AddChannel(string channel)
+		{
+			channels.Add(channel);
+		}
+
+        public void AddChannels(string[] channels)
+        {
+            this.channels = new JArray();
+
+            foreach (string channel in channels)
+            {
+                this.channels.Add(channel);
+            }
         }
 
         public void SetTotalAmount(double amount)
@@ -152,6 +168,7 @@ namespace Paydunya
             JObject payload = new JObject();
             invoice.Add("items", items);
             invoice.Add("taxes", taxes);
+            invoice.Add("channels", channels);
             payload.Add("invoice", invoice);
             payload.Add("store", storeData);
             payload.Add("actions", actions);
